@@ -38,11 +38,6 @@ function HomeSkeleton(){
   );
 }
 const Home = () => {
-
-    const searchParams = useSearchParams(); 
-    
-  const q = typeof(searchParams.get('q') !== null) ? searchParams.get('q') : 'tesla'
-
   return (
     <section>
       <Suspense
@@ -52,12 +47,20 @@ const Home = () => {
           </>
         }
       >
-        <div className="flex flex-col gap-2 mx-2 md:mx-24">
-          <NavBar />
-          <NewsBody searchterm={q} />
-        </div>
+        <MainPageComponent/>
       </Suspense>
     </section>
+  );
+}
+
+function MainPageComponent() {
+      const searchParams = useSearchParams();
+      const q = typeof (searchParams.get("q") !== null) ? searchParams.get("q") : "tesla";
+  return (
+    <div className="flex flex-col gap-2 mx-2 md:mx-24">
+      <NavBar />
+      <NewsBody searchterm={q} />
+    </div>
   );
 }
 
