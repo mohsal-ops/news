@@ -55,12 +55,14 @@ const Home = () => {
 
 function MainPageComponent() {
       const searchParams = useSearchParams();
-      const q = typeof (searchParams.get("q") !== null) ? searchParams.get("q") : "tesla";
+      const q = typeof (searchParams.get("q") !== null) ? searchParams.get("q") : "business";
   return (
-    <div className="flex flex-col gap-2 mx-2 md:mx-24">
+    <main className="flex flex-col gap-2 mx-2 md:mx-24">
       <NavBar />
-      <NewsBody searchterm={q} />
-    </div>
+      <section>
+        <NewsBody searchterm={q} />
+      </section>
+    </main>
   );
 }
 

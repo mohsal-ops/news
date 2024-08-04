@@ -1,38 +1,46 @@
-'use client'
-import { revalidatePath } from 'next/cache';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react'
-import { IoMdSearch } from 'react-icons/io';
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from './ui/navigation-menu';
-import { cn } from '@/lib/utils';
-import logo from 'logo.png'
+"use client";
+
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import { IoMdSearch } from "react-icons/io";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "./ui/navigation-menu";
 
 export default function NavBar() {
-    const router = useRouter()
-    const [searchterm, setsearchterm] = useState<string>()
-    const handlesearch = (event: React.FormEvent) => {
-        event.preventDefault()
-        router.push(`/?q=${searchterm}`)
+  const router = useRouter();
+  const [searchterm, setSearchterm] = useState<string>("");
+
+  const handleSearch = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (searchterm.trim()) {
+      router.push(`/?q=${encodeURIComponent(searchterm.trim())}`);
     }
-    const links = ['business', 'entertainment', 'science', 'sports', '']
+  };
+
+  const links = ["business", "technology", "science", "sports", ""];
+
   return (
     <div className="flex flex-col border-b-[1px] border-black border-opacity-25">
-      <div className="flex items-center py-3 justify-between border-b-[1px] border-black border-opacity-25 ">
+      <div className="flex items-center py-3 justify-between border-b-[1px] border-black border-opacity-25">
         <div>
-          <img src='logo.png' className='w-40 h-16 -ml-4'/>
+          <img src="logo.png" className="w-40 h-16 -ml-4" />
         </div>
         <div className="flex pl-1 justify-start items-center bg-white border rounded-xl outline-none focus-within:shadow-sm">
           <IoMdSearch fontSize={21} className="ml-1 text-black" />
-          <form onSubmit={handlesearch}>
+          <form onSubmit={handleSearch}>
             <input
-              onChange={(e) => {
-                setsearchterm(e.target.value);
-              }}
+              onChange={(e) => setSearchterm(e.target.value)}
               value={searchterm}
               type="text"
               placeholder="Search"
-              className="p-2 outline-none rounded-3xl text-black "
+              className="p-2 outline-none rounded-3xl text-black"
             />
           </form>
         </div>
@@ -48,32 +56,32 @@ export default function NavBar() {
               {link}
             </Link>
           ) : (
-            <NavigationMenu>
+            <NavigationMenu key={key}>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="font-meduim">
+                  <NavigationMenuTrigger className="font-medium">
                     {link}
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="w-36  flex flex-col items-center  ">
+                  <NavigationMenuContent>
                     <NavigationMenuLink
                       asChild
-                      className=" py-3 w-full text-center hover:bg-primary-foreground"
+                      className="py-3 w-full text-center"
                     >
                       <a className="w-full h-full" href="/?q=technology">
-                        technology
+                        olimpics
                       </a>
                     </NavigationMenuLink>
                     <NavigationMenuLink
                       asChild
-                      className=" py-3 w-full text-center hover:bg-primary-foreground"
+                      className="py-3 w-full text-center hover:bg-primary-foreground"
                     >
-                      <a className="w-full h-full" href="/?q=invetions">
-                        invetions
+                      <a className="w-full h-full" href="/?q=inventions">
+                        inventions
                       </a>
                     </NavigationMenuLink>
                     <NavigationMenuLink
                       asChild
-                      className=" py-3 w-full text-center hover:bg-primary-foreground"
+                      className="py-3 w-full text-center hover:bg-primary-foreground"
                     >
                       <a className="w-full h-full" href="/?q=Bitcoin">
                         Bitcoin
