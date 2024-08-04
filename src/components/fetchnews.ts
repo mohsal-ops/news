@@ -21,7 +21,7 @@ export default async function NewsFetcher({ searchterm }: { searchterm?: string 
 
 }
 export async function Randomnews() {
-    const url = `https://headlines.recon.us.com/api/v1/?action=history&search=headline&value=sport`;
+    const url = `https://headlines.recon.us.com/api/v1/?action=history&search=headline&value=trump`;
     const options = {
         method: 'GET',
         headers: {

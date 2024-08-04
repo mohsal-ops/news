@@ -1,4 +1,5 @@
-import { randomUUID } from "crypto";
+'use client'
+import Link from "next/link";
 import { newsCardProp } from "./randomnews";
 
 
@@ -14,7 +15,11 @@ export default async function NewsCard({ item }: { item: newsCardProp }) {
 
   return (
     <>
-      <a href={item?.link} key={item?.hash} className="flex flex-col">
+      <Link
+        href={item?.link}
+        key={item?.hash}
+        className="flex flex-col"
+      >
         <div className="flex justify-end items-center">
           <p>{item.pubDate?.slice(0, 10)}</p>
         </div>
@@ -23,7 +28,7 @@ export default async function NewsCard({ item }: { item: newsCardProp }) {
           <p className="pl-1 font-medium">{item.source}</p>
           <p className="pl-1 font-extralight">{item.text}</p>
         </div>
-      </a>
+      </Link>
     </>
   );
 }

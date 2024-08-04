@@ -67,25 +67,25 @@ export default function NavBar() {
                       asChild
                       className="py-3 w-full text-center"
                     >
-                      <a className="w-full h-full" href="/?q=technology">
+                      <Link className="w-full h-full" href="/?q=technology">
                         olimpics
-                      </a>
+                      </Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink
                       asChild
                       className="py-3 w-full text-center hover:bg-primary-foreground"
                     >
-                      <a className="w-full h-full" href="/?q=inventions">
+                      <Link className="w-full h-full" href="/?q=inventions">
                         inventions
-                      </a>
+                      </Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink
                       asChild
                       className="py-3 w-full text-center hover:bg-primary-foreground"
                     >
-                      <a className="w-full h-full" href="/?q=Bitcoin">
+                      <Link className="w-full h-full" href="/?q=Bitcoin">
                         Bitcoin
-                      </a>
+                      </Link>
                     </NavigationMenuLink>
                   </NavigationMenuContent>
                 </NavigationMenuItem>

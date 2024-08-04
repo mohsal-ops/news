@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 
 export interface newsCardProp {
@@ -23,7 +24,7 @@ export async function RandomNews({ item }: randomnewsPop) {
 
   return (
     <>
-      <a
+      <Link
         href={item.link}
         key={item.hash}
         className="flex border-b-[1px] border-black border-opacity-25 pb-4"
@@ -42,7 +43,7 @@ export async function RandomNews({ item }: randomnewsPop) {
             className="object-cover"
           />
         </div>
-      </a>
+      </Link>
     </>
   );
 }
