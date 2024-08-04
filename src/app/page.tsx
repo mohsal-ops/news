@@ -12,12 +12,11 @@ const Home = () => {
       <Suspense
         fallback={
           <>
-            <HomeSkeleton />
           </>
         }
       >
-      </Suspense>
         <MainPageComponent/>
+      </Suspense>
     </section>
   );
 }

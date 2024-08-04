@@ -15,11 +15,7 @@ export default async function NewsCard({ item }: { item: newsCardProp }) {
 
   return (
     <>
-      <Link
-        href={item?.link}
-        key={item?.hash}
-        className="flex flex-col"
-      >
+      <Link href={item?.link} key={item?.hash} className="flex flex-col">
         <div className="flex justify-end items-center">
           <p>{item.pubDate?.slice(0, 10)}</p>
         </div>
