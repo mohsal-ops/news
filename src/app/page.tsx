@@ -11,10 +11,7 @@ import { Suspense, useEffect } from "react";
 
 
 const Home = () => {
-  const searchParams = useSearchParams();
-  const q = typeof (searchParams.get("q") !== null)
-    ? searchParams.get("q")
-    : "business";
+  
   return (
     <section>
       <Suspense
@@ -26,18 +23,22 @@ const Home = () => {
           </>
         }
       >
+      <MainPageComponent  />
       </Suspense>
-      <MainPageComponent searchterm={q} />
     </section>
   );
 }
 
-function MainPageComponent({ searchterm }: { searchterm?: string | null }) {
+function MainPageComponent() {
+  const searchParams = useSearchParams();
+  const q = typeof (searchParams.get("q") !== null)
+    ? searchParams.get("q")
+    : "business";
   return (
     <main className="flex flex-col gap-2 mx-2 md:mx-24">
       <NavBar />
       <section>
-        <NewsBody searchterm={searchterm} />
+        <NewsBody searchterm={q} />
       </section>
     </main>
   );
