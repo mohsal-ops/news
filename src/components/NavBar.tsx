@@ -24,7 +24,7 @@ export default function NavBar() {
     }
   };
 
-  const links = ["business", "technology", "science", "sports", ""];
+  const links = ["business", "technology", "science", "sports","olimpics"];
 
   return (
     <div className="flex flex-col border-b-[1px] border-black border-opacity-25">
@@ -47,7 +47,6 @@ export default function NavBar() {
       </div>
       <div className="flex items-center w-full py-1">
         {links.map((link, key) =>
-          link !== "" ? (
             <Link
               key={key}
               className="hover:bg-zinc-100 hover:duration-300 rounded-md text-center px-4 font-medium py-4"
@@ -55,43 +54,6 @@ export default function NavBar() {
             >
               {link}
             </Link>
-          ) : (
-            <NavigationMenu key={key}>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="font-medium">
-                    {link}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <NavigationMenuLink
-                      asChild
-                      className="py-3 w-full text-center"
-                    >
-                      <Link className="w-full h-full" href="/?q=technology">
-                        olimpics
-                      </Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink
-                      asChild
-                      className="py-3 w-full text-center hover:bg-primary-foreground"
-                    >
-                      <Link className="w-full h-full" href="/?q=inventions">
-                        inventions
-                      </Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink
-                      asChild
-                      className="py-3 w-full text-center hover:bg-primary-foreground"
-                    >
-                      <Link className="w-full h-full" href="/?q=Bitcoin">
-                        Bitcoin
-                      </Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          )
         )}
       </div>
     </div>
