@@ -16,8 +16,8 @@ const Home = () => {
           </>
         }
       >
-        <MainPageComponent/>
       </Suspense>
+        <MainPageComponent/>
     </section>
   );
 }
