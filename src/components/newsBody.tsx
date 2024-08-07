@@ -1,35 +1,64 @@
 'use client'
-import NewsFetcher, { Randomnews } from './fetchnews';
+import getSearchNews, { getRandomNews } from './getdata';
 import NewsCard from './newsCard';
-import { RandomNews } from './randomnews';
+import { useEffect, useState } from 'react';
+import RandomNews, { newsCardProp, randomnewsProp } from './randomnews';
 
 
 
-export default async function NewsBody({ searchterm }: { searchterm?: string | null }) {
-  const alldata = await Randomnews();
-  const newsarray = await alldata.data
+export default function NewsBody({
+  searchterm,page
+}: {
+  searchterm: string ;
+  page:number
+  }) {
+  const [newsarray, setnewsarray] = useState<any[]>(['liii'])
+  const [news, setnews] = useState<any[]>([]);
+  useEffect(() => {
+    getSearchNews({ searchterm,page }).then((res) => {
+    res?.map((item:any) => {
+        setnews((prev)=>[...prev,item]);
+      console.log(news)
+    })
+      
+    });
+    getRandomNews().then((res) => {
+      setnewsarray(res)
+    })
 
-  const DTA = await NewsFetcher({ searchterm });
-  const news = await DTA.data;
+  },[searchterm])
   
-    return (
-      <section className="flex gap-10">
-        <div className="md:w-[60%] w-full">
-            <div className="flex flex-col gap-10 ">
-              {news?.map((item: any) => (
-                <NewsCard item={item} />
-              )
-                )}
-            </div>
-        </div>
 
-        <div className="hidden md:block w-[40%]  border-l-[1px] border-black border-opacity-25 pl-5 ">
-            <div className="flex flex-col gap-10">
-              {newsarray?.map((item: any) => (
-                  <RandomNews item={item} />
-                ))}
-            </div>
+  return (
+    <section className="flex gap-10">
+      <div className="md:w-[60%] w-full">
+        <div className="flex flex-col gap-10 ">
+          {news.length > 0 ? (
+          <>
+          {news?.map((item: newsCardProp) => (
+            <NewsCard item={item} />
+          ))}
+              </>
+          ) : (
+              <div>No news found</div>
+          )}
         </div>
-      </section>
-    );
+      </div>
+
+      <div className="hidden md:block w-[40%]  border-l-[1px] border-black border-opacity-25 pl-5 ">
+        <div className="flex flex-col gap-10">
+          {newsarray.length > 0 ? (
+            <>
+              {newsarray?.map((item: randomnewsProp) => (
+            <RandomNews key={item.timestamp} item={item} />
+          ))}
+            </>
+          ) : (
+              <div>No news found</div>
+          )}
+          
+        </div>
+      </div>
+    </section>
+  );
 }

@@ -1,28 +1,19 @@
-'use client'
 import Link from "next/link";
 import { newsCardProp } from "./randomnews";
 
 
 
-export default async function NewsCard({ item }: { item: newsCardProp }) {
- const extractedUrl = item.urls.replace(/^\["/, "").replace(/"]$/, "")
-  
- const handleError = (e:any) => {
-   const target = e.target as HTMLImageElement;
-   target.classList.add("hidden");
-  };
-  console.log(extractedUrl);
-
+export default function NewsCard({ item }: { item: newsCardProp }) {
   return (
     <>
-      <Link href={item?.link} key={item?.hash} className="flex flex-col">
-        <div className="flex justify-end items-center">
-          <p>{item.pubDate?.slice(0, 10)}</p>
-        </div>
+      <Link href={item?.url} key={item.url} className="flex flex-col">
         <div className="space-y-2">
-          <img onError={handleError} src={extractedUrl} alt="" />
-          <p className="pl-1 font-medium">{item.source}</p>
-          <p className="pl-1 font-extralight">{item.text}</p>
+          <div className="flex justify-between w-full">
+            <p className="pl-1 font-light">{item.date?.slice(0, 10)}</p>
+          </div>
+          <img src={item.thumbnail} className="text-center" alt="image" />
+          <p className="pl-1 font-medium">{item.title}</p>
+          <p className="pl-1 font-extralight">{item.excerpt}</p>
         </div>
       </Link>
     </>
