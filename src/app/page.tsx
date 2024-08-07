@@ -9,7 +9,7 @@ import { Bars } from "react-loader-spinner";
 
  
 
-export function Mainfunction() {
+function Mainfunction() {
   const searchParams = useSearchParams()
   const [searchterm, setsearchterm] = useState<string>("");
   const [page, setpage] = useState<number>(1);
