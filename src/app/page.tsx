@@ -25,11 +25,11 @@ function Mainfunction() {
     };
 
     setsearchterm(() => getTheTerm());
-    console.log(searchterm)
-  }, [searchParams,page]);
+
+  }, [searchParams, page]);
 
   return (
-    <main className="flex flex-col gakp-2 md:mx-24">
+    <main className="flex flex-col  md:mx-24">
       <section>
         <NavBar />
       </section>
@@ -37,18 +37,21 @@ function Mainfunction() {
       <section>
         <NewsBody searchterm={searchterm} page={page} />
       </section>
-      <section>
+      <section className="flex items-center w-full justify-center ">
         <button
-          className="w-full hover:bg-gray-100"
+          className="w-full flex flex-col justify-center items-center hover:bg-gray-100"
           onClick={() => setpage((prev) => prev + 1)}
         >
-          <Bars
-            height="50"
-            width="50"
-            color="#03045e"
-            ariaLabel="bars-loading"
-            visible={true}
-          />
+            <Bars
+              height="50"
+              width="30"
+              color="#03045e"
+              ariaLabel="bars-loading"
+              visible={true}
+            />
+          <p className="text-[#03045e] font-medium text-xs">
+            Click to load more
+          </p>
         </button>
       </section>
     </main>
@@ -58,7 +61,7 @@ function Mainfunction() {
 export default function Home() {
   return (
     <div
-      className="mt-3  flex flex-col justify-center space-y-5 lg:space-y-2  px-5 sm:px-3 "
+      className=" flex flex-col justify-center space-y-5 lg:space-y-2   sm:px-3 "
       key='kbkefjvb'
     >
       <Suspense

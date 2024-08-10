@@ -12,7 +12,7 @@ export default function NewsBody({
   searchterm: string ;
   page:number
   }) {
-  const [newsarray, setnewsarray] = useState<any[]>(['liii'])
+  const [newsarray, setnewsarray] = useState<any[]>([])
   const [news, setnews] = useState<any[]>([]);
   useEffect(() => {
     getSearchNews({ searchterm,page }).then((res) => {
@@ -26,7 +26,7 @@ export default function NewsBody({
       setnewsarray(res)
     })
 
-  },[searchterm])
+  },[searchterm,page])
   
 
   return (
