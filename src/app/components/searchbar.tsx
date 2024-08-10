@@ -11,7 +11,9 @@ export default function Searchbar() {
   return (
     <div className="flex pl-1 justify-start items-center bg-white border rounded-xl outline-none focus-within:shadow-sm">
       <IoMdSearch fontSize={21} className="ml-1 text-black" />
-      <form onSubmit={()=>router.push(`/q=${searchterm.trim()}`)}>
+      <form onSubmit={(e) => {
+        e.preventDefault()
+        router.push(`/q=${searchterm}`)}}>
         <input
           onChange={(e) => setSearchterm(e.target.value)}
           value={searchterm}
