@@ -3,7 +3,7 @@ export default async function NewsFetcher({ searchterm,page }: {page:number, sea
     const options = {
         method: 'GET',
         headers: {
-            'x-rapidapi-key': 'ac8bce4f43mshf64d3db953658f4p1237fdjsn26b4b1b0a719',
+            'x-rapidapi-key': '95645dc66amshd46b97ea279fd35p156efbjsn6378dcd2d7ca',
             'x-rapidapi-host': 'news-api14.p.rapidapi.com'
         }
     };
