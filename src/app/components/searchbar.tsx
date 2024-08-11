@@ -13,7 +13,7 @@ export default function Searchbar() {
       <IoMdSearch fontSize={21} className="ml-1 text-black" />
       <form onSubmit={(e) => {
         e.preventDefault()
-        router.push(`/q=${searchterm}`)}}>
+        router.push(`/?q=${searchterm}`)}}>
         <input
           onChange={(e) => setSearchterm(e.target.value)}
           value={searchterm}

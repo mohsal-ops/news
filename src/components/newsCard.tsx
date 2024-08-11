@@ -11,7 +11,7 @@ export default function NewsCard({ item }: { item: newsCardProp }) {
           <div className="flex justify-between w-full">
             <p className="pl-1 font-light">{item.date?.slice(0, 10)}</p>
           </div>
-          <img src={item.thumbnail} className="text-center" alt="image" />
+          <img src={item.thumbnail} className="text-center" alt="" />
           <p className="pl-1 font-medium">{item.title}</p>
           <p className="pl-1 font-extralight">{item.excerpt}</p>
         </div>

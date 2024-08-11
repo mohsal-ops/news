@@ -1,11 +1,19 @@
 import NewsFetcher, { Randomnews } from './fetchnews';
 
-export default async function getSearchNews({searchterm,page}:{page:number,searchterm : string}) {
+export default async function getSearchNews({ searchterm }: { searchterm: string }) {
+    const page =1
 
     const alldata = await NewsFetcher({searchterm , page });
     const newsarray = await alldata?.data
     console.log('news aknd', newsarray)
     return newsarray 
+}
+export  async function getLoadMoreNews({ searchterm,page }: {page:number, searchterm: string }) {
+
+    const alldata = await NewsFetcher({ searchterm, page });
+    const newsarray = await alldata?.data
+    console.log('news aknd', newsarray)
+    return newsarray
 }
 export async function getRandomNews() {
 

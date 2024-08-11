@@ -31,7 +31,7 @@ export default function NavBar() {
             <Searchbar />
           </div>
         </div>
-        <div className="flex items-center w-full py-1">
+        <div className="flex overflow-auto items-center w-full py-1">
           
           {links.map((link, key) => (
             <Link
