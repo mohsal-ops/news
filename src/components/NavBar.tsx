@@ -22,7 +22,7 @@ export default function NavBar() {
 
   return (
     <>
-      <div className="hidden  sm:flex flex-col border-b-[1px] border-black border-opacity-25">
+      <div className="hidden  sm:flex flex-col border-b-[1px] border-black border-opacity-25 ">
         <div className="flex py-2 items-center justify-between border-b-[1px] border-black border-opacity-25">
           <div>
             <img src="logo.png" className="sm:w-40  sm:h-16  -ml-4" />

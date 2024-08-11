@@ -27,7 +27,7 @@ function Mainfunction() {
 
   return (
     <main className="flex flex-col  lg:mx-24">
-      <section>
+      <section >
         <NavBar />
       </section>
 
