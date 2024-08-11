@@ -12,7 +12,7 @@ import { Bars } from "react-loader-spinner";
 function Mainfunction() {
   const searchParams = useSearchParams()
   const q = searchParams.get("q");
-  const [searchterm, setsearchterm] = useState<string>(q);
+  const [searchterm, setsearchterm] = useState<string>('');
   useEffect(() => {
     const getTheTerm = () => {
       if (!q) {
